@@ -17,7 +17,7 @@ var pics = require('./routes/pics');
 var app = express();
 
 //connect to the database
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://Huyjoon1995:Iamlegend3000!@ds147304.mlab.com:47304/pinterest');
+mongoose.connect(process.env.MONGOLAB_URI  || 'mongodb://Huyjoon1995:Iamlegend3000!@ds147304.mlab.com:47304/pinterest');
 
 //require the passport file to get the customer key and secret
 require('./config/passport')(passport);
