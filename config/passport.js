@@ -24,9 +24,9 @@ module.exports = function(passport) {
     //local strategy for twitter
     passport.use(new TwitterStrategy({
 
-        consumerKey     : process.env.CONSUMER_KEY, //load from the .env file
-        consumerSecret  : process.env.CONSUMER_SECRET, //load from the .env file
-        callbackURL     : 'http://127.0.0.1:3000/auth/twitter/callback',
+        consumerKey     : '7BPJboVcoIsELW9Oi2uTPbj7m', //load from the .env file
+        consumerSecret  : 'cYzkex0pnHpHYRszVDVDjAt3189LJUOWrUx3BVOQvgoxbzXV7B', //load from the .env file
+        callbackURL     : 'https://huypin.herokuapp.com/auth/twitter/callback',
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
     },
