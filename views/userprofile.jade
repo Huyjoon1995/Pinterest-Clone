@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .container
+    .col-md-12.text-center
+      h1 #{user}'s Profile
+      a(href="/", class="btn btn-primary") Back Home
+    .row
+      if pics.length > 0
+        each pic, i in pics
+          .col-xs-6.col-md-4
+            .thumbnail
+              img.img-responsive(src="#{pic.url}", alt="#{pic.title}", onError="this.onerror=null;this.src='/images/broken.png';")
+              .caption
+                p.lead #{pic.title}

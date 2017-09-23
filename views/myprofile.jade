@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  .container
+    .col-md-12.text-center
+      h1 #{user}'s Profile
+      a(href="/", class="btn btn-primary")
+        i.fa.fa-home(aria-hidden='true')
+        | Back Home
+      a(href="#", class="btn btn-primary", id="onclick")
+        i.fa.fa-picture-o(aria-hidden='true')
+        | Add Pics
+      a(href="/logout", class="btn btn-danger")
+        i.fa.fa-sign-out(aria-hidden='true')
+        | Logout
+    .row
+      if pics.length > 0
+        each pic, i in pics
+          .col-xs-6.col-md-4
+            .thumbnail
+              img.img-responsive(src="#{pic.url}", alt="#{pic.title}", onError="this.onerror=null;this.src='/images/broken.png';")
+              .caption
+                p.lead #{pic.title}
+                p
+                  a.btn.btn-danger(href='/pics/delete/#{pic._id}', role='button')
+                    i.fa.fa-times(aria-hidden='true')
+                    | Delete Pic
+    #addpics
+      form#pics.form(method="post", action='/pics/addpic')
+        img#cancel.img(src='button_cancel.png')
+        h3 Add Picture
+        label
+          | URL:
+          span *
+        input#url(type='text', placeholder='ex: http://buzzsharer.com/wp-content/uploads/2016/04/funny-corgi-meme-snow-face.jpg', name="url")
+        label
+          | Caption:
+          span *
+        input#title(type='text', placeholder='my corgi meme', name="title")
+        input#send(name="submit", type='submit', value='Save Pic')
+        input#cancel(type='button', value='Cancel')
+        br
