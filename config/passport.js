@@ -26,7 +26,7 @@ module.exports = function(passport) {
 
         consumerKey     : process.env.CONSUMER_KEY, //load from the .env file
         consumerSecret  : process.env.CONSUMER_SECRET, //load from the .env file
-        callbackURL     : '	https://huy-pinterest.herokuapp.com/auth/twitter/callback',
+        callbackURL     : 'https://huypinterest.herokuapp.com/auth/twitter/callback',
         passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
 
     },
